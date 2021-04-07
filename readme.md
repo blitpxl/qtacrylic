@@ -49,7 +49,6 @@ if __name__ == "__main__":
     app.exec_()
 ```
 
-It should look like this
 ![](https://i.ibb.co/GVcWbS5/acrylic.png)
 
 To apply the Aero effect simply replace `setAcrylicEffect()` with `setAeroEffect()`
