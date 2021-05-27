@@ -3,6 +3,26 @@ qtacrylic is a python module to apply Windows 10's Acrylic Material Theme onto a
 
 You can also apply the Aero Material Theme using this module.
 
+# Issue with newer version of windows
+
+If you're running a Windows version above 1809, and trying to apply the acrylic material, then you will be very likely
+to encounter a bug where the window lags behind the cursor when you resize/move the window. Fortunately this bug is only occured
+with the Acrylic blur. Meaning you can still use the Aero blur without problem. 
+
+This bug is located in windows' dwm (desktop window manager), meaning we couldn't do anything to completely mitigate the issue, 
+we have to wait the Windows developers to fix the bug.
+There's however a very crude and temporary fix to this problem by disabling Acrylic shadow and adding a delay when you resize/move the window:
+
+```python
+    def moveEvent(self, event) -> None:
+        time.sleep(0.02)  # sleep for 20ms
+
+    def resizeEvent(self, event) -> None:
+        time.sleep(0.02)  # sleep for 20ms
+```
+
+This may introduce a noticeably minor stutter or unsmooth window moving/resizing.
+
 # How to use it
 
 Import the module:
